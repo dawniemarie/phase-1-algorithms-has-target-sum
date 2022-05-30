@@ -1,22 +1,40 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  for (let i = 0; i < array.length; i++) {
+    for (let j = i + 1; j < array.length; j++){
+      if (array[j] === target - array[i]) {
+        return true
+      }
+    }
+  }
+  return false
 }
 
 /* 
-  Write the Big O time complexity of your function here
+Quadratic Time: O(n²)
 */
 
 /* 
-  Add your pseudocode here
+first argument includes array of integers
+  second argument includes target integer
+    if any pair of the numbers in array adds up to target, return true
 */
 
 /*
-  Add written explanation of your solution here
+I need to write a function called "hasTargetSum" that will consist of two arguments which includes an array of integers, and a target integer. If any pair of the numbers in the array adds up to the target number, I return true.
+
+Example:
+
+hasTargetSum([2, 6, 8, 4, 14, 12], 18); => returns true, since 4 and 14 add up to 18
 */
 
 // You can run `node index.js` to view these console logs
 if (require.main === module) {
-  // add your own custom tests in here
+  console.log("Expecting: true");
+  console.log("=>", hasTargetSum([2, 6, 8, 4, 14, 12], 18));
+
+  console.log("Expecting: false");
+  console.log("=>", hasTargetSum([5, 2, 9], 12));
+  
   console.log("Expecting: true");
   console.log("=>", hasTargetSum([3, 8, 12, 4, 11, 7], 10));
 
